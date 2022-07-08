@@ -1,10 +1,12 @@
 const express = require("express")
 const app = express()
-const PORT = 8000
 const cors = require("cors")
+const bodyParser = require("body-parser")
+const PORT = 8000
 
 app.use(cors())
 app.use("/static", express.static("./static/"))
+app.use(bodyParser.urlencoded({extended:true}))
 
 const bands = {
     "unknown": {
@@ -63,6 +65,10 @@ const bands = {
      },
 }
 
+app.listen(process.env.PORT || PORT, () =>{
+    console.log(`The server is running on ${PORT}. You better go catch it!`)
+})
+
 app.get('/', (req,res) =>{
     res.sendFile(__dirname + "/index.html")
 })
@@ -76,6 +82,6 @@ app.get('/api/:band', (req, res) =>{
     }
 })
 
-app.listen(process.env.PORT || PORT, () =>{
-    console.log(`The server is running on ${PORT}. You better go catch it!`)
+app.post('/songs', (req,res) =>{
+    console.log(req.body)
 })
