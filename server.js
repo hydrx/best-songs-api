@@ -32,6 +32,22 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
             res.render("index.ejs", {})
         })
 
+        app.get("/bands", (req, res) =>{
+            db.collection("bands").find().toArray()
+                .then(results => {
+                    res.render("bands.ejs", {bands:results})
+                })
+                .catch(err => console.error(err))
+        })
+
+        app.get("/hydrx", (req, res) =>{
+            db.collection("bands").find().toArray()
+                .then(results => {
+                    res.render("hydrx.ejs", {bands:results})
+                })
+                .catch(err => console.error(err))
+        })
+
         app.get("/api/:band", (req, res) =>{
             //pass from mongodb
         })
@@ -40,9 +56,13 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
             bands.insertOne(req.body)
                 .then(result => {
                     console.log(res)
-                    res.redirect("/")
+                    res.redirect("/hydrx")
                 })
                 .catch(err => console.error(err))
+        })
+
+        app.post("/bandsuggest", (req,res) =>{
+            //add functionality later
         })
     })
     .catch(err => console.error(err))
