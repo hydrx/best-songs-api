@@ -87,6 +87,19 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
                 .catch(err => console.error(err))
         })
 
+        app.delete("/songs", (req, res) => {
+            bands.deleteOne(
+                {band: req.body.band}
+            )
+                .then(result => {
+                    if(result.deletedCount === 0){
+                        return res.json("No empty data to delete")
+                    }
+                    res.json("Deleted empty data")
+                })
+                .catch(err => console.error(err))
+        })
+
     })
     .catch(err => console.error(err))
 
