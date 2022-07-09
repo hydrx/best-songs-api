@@ -66,14 +66,14 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
             //add functionality later
         })
 
-        // TODO: fix put request
-        /*app.put("/songs", (req,res) =>{
+        //TODO: update from old band
+        app.put("/songs", (req,res) =>{
             bands.findOneAndUpdate(
-                {band: "Fall Out Boy"},
+                {band: req.body.band},
                 {
                     $set: {
-                        name: req.body.band,
-                        quote: req.body.song
+                        band: req.body.band,
+                        song: req.body.song
                     }
                 },
                 {
@@ -85,7 +85,7 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
                     res.json("success")
                 })
                 .catch(err => console.error(err))
-        })*/
+        })
 
     })
     .catch(err => console.error(err))
