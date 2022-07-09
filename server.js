@@ -17,6 +17,7 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
         app.use(cors())
         app.use("/static", express.static("./static/"))
         app.use(bodyParser.urlencoded({extended:true}))
+        app.use(bodyParser.json())
 
         app.listen(process.env.PORT || PORT, () =>{
             console.log(`The server is running on ${PORT}. You better go catch it!`)
@@ -55,7 +56,7 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
         app.post("/songs", (req,res) =>{
             bands.insertOne(req.body)
                 .then(result => {
-                    console.log(res)
+                    console.log(result)
                     res.redirect("/hydrx")
                 })
                 .catch(err => console.error(err))
@@ -64,6 +65,28 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
         app.post("/bandsuggest", (req,res) =>{
             //add functionality later
         })
+
+        // TODO: fix put request
+        /*app.put("/songs", (req,res) =>{
+            bands.findOneAndUpdate(
+                {band: "Fall Out Boy"},
+                {
+                    $set: {
+                        name: req.body.band,
+                        quote: req.body.song
+                    }
+                },
+                {
+                    upsert: true
+                }
+            )
+                .then(result => {
+                    console.log(result)
+                    res.json("success")
+                })
+                .catch(err => console.error(err))
+        })*/
+
     })
     .catch(err => console.error(err))
 
