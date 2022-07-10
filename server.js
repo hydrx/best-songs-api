@@ -41,10 +41,10 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
                 .catch(err => console.error(err))
         })
 
-        app.get("/hydrx", (req, res) =>{
+        app.get("/dev", (req, res) =>{
             db.collection("bands").find().toArray()
                 .then(results => {
-                    res.render("hydrx.ejs", {bands:results})
+                    res.render("dev.ejs", {bands:results})
                 })
                 .catch(err => console.error(err))
         })
@@ -57,7 +57,7 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
             bands.insertOne(req.body)
                 .then(result => {
                     console.log(result)
-                    res.redirect("/hydrx")
+                    res.redirect("/dev")
                 })
                 .catch(err => console.error(err))
         })
