@@ -51,6 +51,22 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
 
         app.get("/api/:band", (req, res) =>{
             //pass from mongodb
+
+            db.collection("bands").find().toArray()
+                .then(results => {
+                    const bandName = req.params.band.toLowerCase()
+                    if(results[bandName]){
+                        res.json(results[bandName])
+                    }else{
+                        res.json(results['unknown'])
+                    }
+                })
+            /*const bandData = req.params.band.toLowerCase()
+            if(bands[bandData]){
+                res.json(bands[bandData])
+            }else{
+                res.json(bands['unknown'])
+            }*/
         })
 
         app.post("/songs", (req,res) =>{

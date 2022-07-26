@@ -23,7 +23,7 @@ async function getBestSong(){
         const res = await fetch(`https://localhost:8000/api/${bandName}`)
         const data = await res.json()
 
-        console.log(data)
+        console.log("form submitted")
         document.querySelector("h2").innerText = data.song
     }catch(error){
         console.log(error)
