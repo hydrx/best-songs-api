@@ -29,3 +29,18 @@ async function getBestSong(){
         console.log(error)
     }
 }
+
+document.querySelector("form").addEventListener("submit", getBestSong)
+
+async function getBestSong(){
+    const bandName = document.querySelector("input").value
+    try{
+        const res = await fetch(`https://localhost:8000/api/${bandName}`)
+        const data = await res.json()
+
+        console.log("form submitted")
+        document.querySelector("h2").innerText = data.song
+    }catch(error){
+        console.log(error)
+    }
+}
