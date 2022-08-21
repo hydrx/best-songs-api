@@ -140,26 +140,16 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
     .catch(err => console.error(err))
 
 //temporary location for titleCase function
-function titleCase(title, minorWords) {
-    if(title){
-        let pass = minorWords ? minorWords.toLowerCase().split(" ") : ""
-        let newTitle = title.toLowerCase().split(" ")
-        let titleCased = []
+function titleCase(title) {
+    let newTitle = title.toLowerCase().split(" ")
+    let titleCased = []
 
-        for(let i=0;i<newTitle.length;i++){
-            let word = newTitle[i]
-            if(!pass.includes(word) || i === 0){
-                titleCased.push(word[0].toUpperCase() + word.slice(1))
-            }else{
-                titleCased.push(word)
-            }
-        }
-
-        return titleCased.join(" ")
-
-    }else{
-        return title
+    for(let i=0;i<newTitle.length;i++){
+        let word = newTitle[i]
+        titleCased.push(word[0].toUpperCase() + word.slice(1))
     }
+
+    return titleCased.join(" ")
 }
 
 /*app.get('/api/:band', (req, res) =>{
