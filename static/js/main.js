@@ -36,7 +36,7 @@ async function getBestSong(e){
 
         console.log("form submitted")
         console.log(data)
-        document.querySelector("h2").innerText = `${data["band"]} - ${data["song"]}`
+        document.querySelector("h2").innerText = `${data[0]["band"]} - ${data[0]["song"]}`
     }catch(error){
         console.log(error)
     }

@@ -54,8 +54,19 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
         app.get("/api/:band", (req, res) =>{
             //pass from mongodb
             const bandName = titleCase(req.params.band)
+            const unknown = [{band: "Unknown Band", song: "No Information"}]
 
-            db.collection("bands").find().toArray()
+            db.collection("bands").find({"band": bandName}).toArray()
+                .then(results => {
+                    if(results[0] !== undefined){
+                        res.json(results)
+                        console.log(results[0])
+                    }else{
+                        res.json(unknown)
+                    }
+                })
+
+            /*db.collection("bands").find().toArray()
                 .then(results => {
                     for(result of results){
                         if(result["band"] == bandName){
@@ -63,12 +74,13 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
                         }else{
                             "unknown"
                             //TODO: return proper unknown response if band not found
-                            /*const unknown = results.find(x => x["band"] === null)
-                            res.json(unknown["song"])*/
+                            /!*const unknown = results.find(x => x["band"] === "unknown")
+                            res.json(results)*!/
 
                         }
                     }
-                })
+                })*/
+
             /*const bandData = req.params.band.toLowerCase()
             if(bands[bandData]){
                 res.json(bands[bandData])
