@@ -15,9 +15,19 @@ async function getBestSong(){
     }
 }*/
 
-document.querySelector("form").addEventListener("submit", getBestSong)
+// document.querySelector("form").addEventListener("submit", testInput)
+document.addEventListener("submit", getBestSong)
 
-async function getBestSong(){
+function testInput(e){
+    e.preventDefault()
+    console.log("Input submitted")
+    const bandName = document.querySelector("input").value
+    console.log(bandName)
+    document.querySelector("h2").innerText = bandName
+}
+
+async function getBestSong(e){
+    e.preventDefault()
     const bandName = document.querySelector("input").value
     console.log(bandName)
     try{

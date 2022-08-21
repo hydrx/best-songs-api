@@ -58,10 +58,14 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
             db.collection("bands").find().toArray()
                 .then(results => {
                     for(result of results){
-                        if(result["band"] === bandName){
+                        if(result["band"] == bandName){
                             res.json(result["song"])
                         }else{
                             "unknown"
+                            //TODO: return proper unknown response if band not found
+                            /*const unknown = results.find(x => x["band"] === null)
+                            res.json(unknown["song"])*/
+
                         }
                     }
                     /*for(band of results) {
