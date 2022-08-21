@@ -1,5 +1,3 @@
-require('dotenv').config()
-const PORT = process.env.PORT
 //get band/song on index.ejs
 /*
 document.querySelector("button").addEventListener("click", getBestSong)
@@ -19,14 +17,16 @@ async function getBestSong(){
 
 document.querySelector("form").addEventListener("submit", getBestSong)
 
-async function getBestSong(PORT){
+async function getBestSong(){
     const bandName = document.querySelector("input").value
+    console.log(bandName)
     try{
-        const res = await fetch(`https://localhost:${PORT}/api/${bandName}`)
+        const res = await fetch(`http://localhost:8000/api/${bandName}`)
         const data = await res.json()
 
         console.log("form submitted")
-        document.querySelector("h2").innerText = data.song
+        console.log(data)
+        document.querySelector("h2").innerText = data
     }catch(error){
         console.log(error)
     }

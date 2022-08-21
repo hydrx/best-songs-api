@@ -53,15 +53,24 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
 
         app.get("/api/:band", (req, res) =>{
             //pass from mongodb
+            const bandName = titleCase(req.params.band)
 
             db.collection("bands").find().toArray()
                 .then(results => {
-                    const bandName = req.params.band.toLowerCase()
-                    if(results[bandName]){
-                        res.json(results[bandName])
-                    }else{
-                        res.json(results['unknown'])
+                    for(result of results){
+                        if(result["band"] === bandName){
+                            res.json(result["song"])
+                        }else{
+                            "unknown"
+                        }
                     }
+                    /*for(band of results) {
+                        if(band[bandName]){
+                            res.json(band[bandName])
+                        }else{
+                            res.json(band['unknown'])
+                        }
+                    }*/
                 })
             /*const bandData = req.params.band.toLowerCase()
             if(bands[bandData]){
@@ -120,6 +129,29 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
 
     })
     .catch(err => console.error(err))
+
+//temporary location for titleCase function
+function titleCase(title, minorWords) {
+    if(title){
+        let pass = minorWords ? minorWords.toLowerCase().split(" ") : ""
+        let newTitle = title.toLowerCase().split(" ")
+        let titleCased = []
+
+        for(let i=0;i<newTitle.length;i++){
+            let word = newTitle[i]
+            if(!pass.includes(word) || i === 0){
+                titleCased.push(word[0].toUpperCase() + word.slice(1))
+            }else{
+                titleCased.push(word)
+            }
+        }
+
+        return titleCased.join(" ")
+
+    }else{
+        return title
+    }
+}
 
 /*app.get('/api/:band', (req, res) =>{
     const bandData = req.params.band.toLowerCase()
