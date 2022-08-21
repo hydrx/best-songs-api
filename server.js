@@ -27,11 +27,11 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
 
         app.get("/", (req,res) =>{
             // res.sendFile(__dirname + "/index.html")
-            db.collection("bands").find().toArray()
+            /*db.collection("bands").find().toArray()
                 .then(results => {
                     console.log(results)
                 })
-                .catch(err => console.error(err))
+                .catch(err => console.error(err))*/
             res.render("index.ejs", {})
         })
 
@@ -59,7 +59,7 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
                 .then(results => {
                     for(result of results){
                         if(result["band"] == bandName){
-                            res.json(result["song"])
+                            res.json(result)
                         }else{
                             "unknown"
                             //TODO: return proper unknown response if band not found
@@ -68,13 +68,6 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
 
                         }
                     }
-                    /*for(band of results) {
-                        if(band[bandName]){
-                            res.json(band[bandName])
-                        }else{
-                            res.json(band['unknown'])
-                        }
-                    }*/
                 })
             /*const bandData = req.params.band.toLowerCase()
             if(bands[bandData]){
