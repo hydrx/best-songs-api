@@ -1,10 +1,12 @@
+require('dotenv').config()
 const express = require("express")
 const app = express()
 const cors = require("cors")
 const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient
-const PORT = 8000
-const mongoString = "mongodb+srv://emo:neon-pop-punk8@cluster0.ssf0umq.mongodb.net/?retryWrites=true&w=majority"
+const PORT = process.env.PORT
+const mongoString = process.env.DB_STRING
+
 
 MongoClient.connect(mongoString, {useUnifiedTopology:true})
     .then(client => {
