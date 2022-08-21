@@ -1,21 +1,6 @@
-//get band/song on index.ejs
-/*
-document.querySelector("button").addEventListener("click", getBestSong)
+const apiURL = "http://localhost:8000/api/"
+// const apiURL = "https://emo-band-songs-api.herokuapp.com/api/"
 
-async function getBestSong(){
-    const bandName = document.querySelector("input").value
-    try{
-        const res = await fetch(`https://emo-band-songs-api.herokuapp.com/api/${bandName}`)
-        const data = await res.json()
-
-        console.log(data)
-        document.querySelector("h2").innerText = data.song
-    }catch(error){
-        console.log(error)
-    }
-}*/
-
-// document.querySelector("form").addEventListener("submit", testInput)
 document.addEventListener("submit", getBestSong)
 
 function testInput(e){
@@ -31,7 +16,7 @@ async function getBestSong(e){
     const bandName = document.querySelector("input").value
     console.log(bandName)
     try{
-        const res = await fetch(`http://localhost:8000/api/${bandName}`)
+        const res = await fetch(`${apiURL}${bandName}`)
         const data = await res.json()
 
         console.log("form submitted")

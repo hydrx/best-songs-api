@@ -36,7 +36,7 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
         })
 
         app.get("/bands", (req, res) =>{
-            db.collection("bands").find().toArray()
+            bands.find().toArray()
                 .then(results => {
                     res.render("bands.ejs", {bands:results})
                 })
@@ -44,7 +44,7 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
         })
 
         app.get("/dev", (req, res) =>{
-            db.collection("bands").find().toArray()
+            bands.find().toArray()
                 .then(results => {
                     res.render("dev.ejs", {bands:results})
                 })
@@ -56,7 +56,7 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
             const bandName = titleCase(req.params.band)
             const unknown = [{band: "Unknown Band", song: "No Information"}]
 
-            db.collection("bands").find({"band": bandName}).toArray()
+            bands.find({"band": bandName}).toArray()
                 .then(results => {
                     if(results[0] !== undefined){
                         res.json(results)
@@ -65,28 +65,6 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
                         res.json(unknown)
                     }
                 })
-
-            /*db.collection("bands").find().toArray()
-                .then(results => {
-                    for(result of results){
-                        if(result["band"] == bandName){
-                            res.json(result)
-                        }else{
-                            "unknown"
-                            //TODO: return proper unknown response if band not found
-                            /!*const unknown = results.find(x => x["band"] === "unknown")
-                            res.json(results)*!/
-
-                        }
-                    }
-                })*/
-
-            /*const bandData = req.params.band.toLowerCase()
-            if(bands[bandData]){
-                res.json(bands[bandData])
-            }else{
-                res.json(bands['unknown'])
-            }*/
         })
 
         app.post("/songs", (req,res) =>{
@@ -151,69 +129,3 @@ function titleCase(title) {
 
     return titleCased.join(" ")
 }
-
-/*app.get('/api/:band', (req, res) =>{
-    const bandData = req.params.band.toLowerCase()
-    if(bands[bandData]){
-        res.json(bands[bandData])
-    }else{
-        res.json(bands['unknown'])
-    }
-})*/
-
-/*const bands = {
-    "unknown": {
-        "song": "no data",
-        "youtube": "#"
-    },
-    "dance gavin dance": {
-        "bandName": "Dance Gavin Dance",
-        "song": "Alex English",
-        "youtube": "#"
-     },
-     "paramore": {
-        "bandName": "Paramore",
-        "song": "Pressure",
-        "youtube": "#"
-     },
-     "panic! at the disco": {
-        "bandName": "Panic! At The Disco",
-        "song": "Lying Is The Most Fun A Girl Can Have Without Taking Her Clothes Off",
-        "youtube": "#"
-     },
-     "fall out boy": {
-        "bandName": "Fall Out Boy",
-        "song": "Grand Theft Autumn",
-        "youtube": "#"
-     },
-     "my chemical romance": {
-        "bandName": "My Chemical Romance",
-        "song": "I'm Not Okay (I Promise)",
-        "youtube": "#"
-     },
-     "hawthorne heights": {
-        "bandName": "Hawthorne Heights",
-        "song": "Ohio Is For Lovers",
-        "youtube": "#"
-     },
-     "escape the fate": {
-        "bandName": "Escape The Fate",
-        "song": "This War Is Ours (The Guillotine II)",
-        "youtube": "#"
-     },
-     "mayday parade": {
-        "bandName": "Mayday Parade",
-        "song": "Three Cheers For Five Years",
-        "youtube": "#"
-     },
-     "jimmy eat world": {
-        "bandName": "Jimmy Eat World",
-        "song": "Hear You Me",
-        "youtube": "#"
-     },
-     "bright eyes": {
-        "bandName": "Bright Eyes",
-        "song": "Lover I Don't Have To Love",
-        "youtube": "#"
-     },
-}*/
