@@ -21,7 +21,7 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
         app.use(bodyParser.urlencoded({extended:true}))
         app.use(bodyParser.json())
 
-        app.listen(process.env.PORT || PORT, () =>{
+        app.listen(PORT, () =>{
             console.log(`The server is running on ${PORT}. You better go catch it!`)
         })
 
