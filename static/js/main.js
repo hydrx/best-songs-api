@@ -1,5 +1,4 @@
-// const apiURL = "http://localhost:8000/api/"
-const apiURL = "https://best-songs-api.herokuapp.com//api/"
+const apiURL = "/api/"
 
 document.addEventListener("submit", getBestSong)
 
