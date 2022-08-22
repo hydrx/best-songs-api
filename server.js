@@ -4,7 +4,6 @@ const app = express()
 const cors = require("cors")
 const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient
-const PORT = process.env.PORT
 const mongoString = process.env.DB_STRING
 
 
@@ -21,8 +20,8 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
         app.use(bodyParser.urlencoded({extended:true}))
         app.use(bodyParser.json())
 
-        app.listen(PORT, () =>{
-            console.log(`The server is running on ${PORT}. You better go catch it!`)
+        app.listen(process.env.PORT || PORT, () =>{
+            console.log(`The server is running on ${process.env.PORT}. You better go catch it!`)
         })
 
         app.get("/", (req,res) =>{
