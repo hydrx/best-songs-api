@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require("express")
 const app = express()
 const cors = require("cors")
-// const bodyParser = require("body-parser")
+const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient
 const mongoString = process.env.DB_STRING
 
@@ -17,9 +17,8 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
 
         app.use(cors())
         app.use("/static", express.static("./static/"))
-        app.use(express.json())
-        // app.use(bodyParser.urlencoded({extended:true}))
-        // app.use(bodyParser.json())
+        app.use(bodyParser.urlencoded({extended:true}))
+        app.use(bodyParser.json())
 
         app.listen(process.env.PORT || PORT, () =>{
             console.log(`The server is running on ${process.env.PORT}. You better go catch it!`)
