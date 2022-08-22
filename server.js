@@ -4,7 +4,7 @@ const app = express()
 const cors = require("cors")
 const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient
-const PORT = process.env.PORT || 80
+const PORT = process.env.PORT
 const mongoString = process.env.DB_STRING
 
 
