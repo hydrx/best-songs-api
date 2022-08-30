@@ -22,7 +22,10 @@
 /*******************************************/
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(18,182,226);
+    background: linear-gradient(0deg, rgba(75,210,196,1) 0%, rgba(18,182,226,1) 64%, rgba(30,98,211,1) 100%);
+    background-attachment: fixed;
 }
 
 a {
