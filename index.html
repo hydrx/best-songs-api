@@ -9,31 +9,39 @@
     <link rel="stylesheet" href="static/css/normalize.css">
     <link rel="stylesheet" href="static/css/reset.css">
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
 </head>
 <body>
     <header>
-        <h1>Party Like It's 2009</h1>
-        <h5>emo/pop punk/scene bands, and some bands that inspired them</h5>
+        <div class="oval">
+            <h1>Party</h1>
+          </div>
+          <div class="arrow_box">
+            <h1>Like It's 2009</h1>
+          </div>
+          <h5>the best of warped tour bands</h5>
     </header>
-
-    <section class="input">
-        <input type="text">
-        <button>What's their best song?</button>
+    
+    <section class="search">
+        <form action="" method="get">
+            <label for="band">Band:</label>
+            <input type="search" id="band" placeholder="Enter band name">
+            <button>What's their best song?</button>
+        </form>
     </section>
     
     <section class="response">
         <h2></h2>
     </section>
-
-    <section class="form">
+    
+    <!--<section class="form">
         <form action="/songs" method="POST">
             <input type="text" placeholder="band" name="band">
             <input type="text" placeholder="song" name="song">
             <button type="submit">Submit</button>
         </form>
-    </section>
+    </section>-->
     
-
     <script src="static/js/main.js"></script>
-</body>
+    </body>
 </html>
