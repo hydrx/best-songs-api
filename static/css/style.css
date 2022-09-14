@@ -25,6 +25,9 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: rgb(18,182,226);
     background: linear-gradient(0deg, rgba(75,210,196,1) 0%, rgba(18,182,226,1) 64%, rgba(30,98,211,1) 100%);
+    /* more gradient: */
+    /* background: rgb(240,95,44);
+    background: linear-gradient(0deg, rgba(240,95,44,1) 0%, rgba(241,196,35,1) 23%, rgba(234,205,81,1) 40%, rgba(27,207,240,1) 58%, rgba(50,137,243,1) 100%); */
     background-attachment: fixed;
 }
 
@@ -57,7 +60,7 @@ h2 {
 
 header h5 {
   color: #fff;
-  font: bold 1em Impact, sans-serif;
+  font: 1em Impact, sans-serif;
   margin-top: 6%;
 }
 
