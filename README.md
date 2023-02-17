@@ -8,6 +8,7 @@ A fun tool with its own band/song API to serve some nostalgia for Warped Tour fa
 ## Demo
 
 [Try it here!](https://best-of-warped.cyclic.app/)
+Band suggestion: Paramore
 
 
 ## Features
