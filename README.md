@@ -34,6 +34,9 @@ Band suggestion: Paramore
 | :-------- | :------- | :-------------------------------- |
 | `band`      | `string` | **Required**. Band name to fetch |
 
+
+#### Example
+
 ![api example](/static/img/api-example.png)
 
 
