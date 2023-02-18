@@ -1,32 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Songs API</title>
-
-    <link rel="stylesheet" href="static/css/reset.css">
-    <link rel="stylesheet" href="static/css/normalize.css">
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+    <%- include('partials/head'); %>
 </head>
 <body>
 <header>
-    <div class="oval">
-        <h1>Party</h1>
-    </div>
-    <div class="arrow_box">
-        <h1>Like It's 2009</h1>
-    </div>
-    <h5>the best of warped tour bands</h5>
+    <%- include('partials/header'); %>
 </header>
 
 <section class="search">
     <form action="" method="get">
-        <label for="band">Band:</label>
-        <input type="search" id="band" placeholder="Enter band name">
-        <button>What's their best song?</button>
+        <div>
+            <label for="band">Band:</label>
+            <input type="search" class="input-main" id="band" placeholder="Enter band name">
+        </div>
+        <div class="btn-line"><button class="btn-main">What's their best song?</button></div>
     </form>
 </section>
 
