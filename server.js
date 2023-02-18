@@ -25,12 +25,6 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
         })
 
         app.get("/", (req,res) =>{
-            // res.sendFile(__dirname + "/index.html")
-            /*db.collection("bands").find().toArray()
-                .then(results => {
-                    console.log(results)
-                })
-                .catch(err => console.error(err))*/
             res.render("index.ejs", {})
         })
 
@@ -51,7 +45,6 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
         })
 
         app.get("/api/:band", (req, res) =>{
-            //pass from mongodb
             const bandName = titleCase(req.params.band)
             const unknown = [{band: "Unknown Band", song: "No Information"}]
 
@@ -99,7 +92,7 @@ MongoClient.connect(mongoString, {useUnifiedTopology:true})
                 })
                 .catch(err => console.error(err))
         })
-
+        //TODO: delete selected band
         app.delete("/songs", (req, res) => {
             bands.deleteOne(
                 {band: req.body.band}
