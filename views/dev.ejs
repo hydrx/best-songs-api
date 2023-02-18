@@ -24,8 +24,8 @@
     </form>
 </section>
 
-<!-- TODO: fix update form -->
-
+<!-- TODO: fix update and delete form -->
+<!--
 <section class="form">
     <form action="/songs" method="PUT">
         <input type="text" placeholder="update band" name="band">
@@ -46,7 +46,7 @@
     <h2>Current Songs List</h2>
     <!--    <%= bands %>-->
     <% for(let i=0;i<bands.length;i++) {%>
-        <li class="band">
+        <li class="band" id=<%= bands[i].band %>>
             <span><%= bands[i].band %></span> -
             <span><%= bands[i].song %></span>
         </li>
