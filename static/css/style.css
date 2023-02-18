@@ -32,8 +32,7 @@ body {
 }
 
 a {
-    color: inherit;
-    text-decoration: inherit;
+    all: inherit;
 }
 
 h1 {
@@ -58,16 +57,49 @@ h2 {
   line-height: normal;
 }
 
-header h5 {
+header h3 {
   color: #fff;
-  font: 1em Impact, sans-serif;
+  font: 1.5em Impact, sans-serif;
   margin-top: 6%;
+}
+
+h4 {
+  color: #000;
+  font: 1.5em sans-serif;
+  font-weight: bold;
 }
 
 label {
     font-weight: bold;
 }
 
+.btn-main {
+  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: rgb(255,255,255);
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+}
+
+.btn-line {
+  margin-top: .5em;
+}
+
+.input-main {
+  background-color: rgba(255, 255, 255, .5);
+  border: 0;
+  border-radius: 12px;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+}
+
+.label-line {
+  margin-bottom: .5em;
+}
 
 /******************************************
 /* LAYOUT
@@ -89,6 +121,10 @@ section {
 /* footer {
 
 } */
+
+#subheading {
+  margin-top: 3em;
+}
 
 /******************************************
 /* ADDITIONAL STYLES

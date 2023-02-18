@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Songs API</title>
-
-    <link rel="stylesheet" href="static/css/reset.css">
-    <link rel="stylesheet" href="static/css/normalize.css">
-    <link rel="stylesheet" href="static/css/style.css">
+    <%- include('partials/head'); %>
 </head>
 <body>
 <header>
-    <h1><a href="/">Party Like It's 2009</a></h1>
-    <h5>Add a band and their best song</h5>
+    <%- include('partials/header'); %>
 </header>
 
 <section class="form">
     <form action="/songs" method="POST">
-        <input type="text" placeholder="new band" name="band">
-        <input type="text" placeholder="new song" name="song">
-        <button type="submit">Add</button>
+        <div class="label-line"><label for="band">Add Band:</label></div>
+        <div>
+            <input type="text" class="input-main" placeholder="new band" name="band">
+            <input type="text" class="input-main" placeholder="new song" name="song">
+        </div>
+        <div class="btn-line"><button type="submit" class="btn-main">Add</button></div>
     </form>
 </section>
 
@@ -46,7 +41,7 @@
     <h2>Current Songs List</h2>
     <!--    <%= bands %>-->
     <% for(let i=0;i<bands.length;i++) {%>
-        <li class="band" id=<%= bands[i].band %>>
+        <li class="band" id=<%= bands[i]._id %>>
             <span><%= bands[i].band %></span> -
             <span><%= bands[i].song %></span>
         </li>
