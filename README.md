@@ -5,16 +5,20 @@ A fun tool with its own band/song API to serve some nostalgia for Warped Tour fa
 
 
 
+## Features
+
+- Main page to fetch the API data
+- Dev page to manage the API `/dev`
+- Bands page to see the current bands `/bands`
+
+
+
 ## Demo
 
 [Try it here!](https://best-of-warped.cyclic.app/)
 Band suggestion: Paramore
 
-
-## Features
-
-- Main page to fetch the API data
-- Dev page to manage the API `/dev`
+![demo image](/static/img/demo.gif)
 
 
 
@@ -30,11 +34,19 @@ Band suggestion: Paramore
 | :-------- | :------- | :-------------------------------- |
 | `band`      | `string` | **Required**. Band name to fetch |
 
+![api example](/static/img/api-example.png)
+
+
+
+## Install
+
+Clone reposity files, then use npm / Node.js
+
+`npm start`
+
 
 
 ## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
 
 `DB_STRING` MongoDB
 
@@ -50,3 +62,8 @@ To run this project, you will need to add the following environment variables to
 
 - Contest the best song feature
 
+- Possible embedded video/audio
+
+## License
+
+[GNU GPLv3](license\gnu-gpl-v3.txt)
