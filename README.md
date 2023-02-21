@@ -69,4 +69,4 @@ Clone repository files, then use npm / Node.js
 
 ## License
 
-[GNU GPLv3](license\gnu-gpl-v3.txt)
+[GNU GPLv3](license)
