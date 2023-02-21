@@ -43,7 +43,7 @@ Band suggestion: Paramore
 
 ## Install
 
-Clone reposity files, then use npm / Node.js
+Clone repository files, then use npm / Node.js
 
 `npm start`
 
